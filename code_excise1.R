@@ -110,5 +110,109 @@ cumsum1  ##累积和
 cumprod1 = cumprod(y)
 cumprod1  ##连乘积
 
+### 16. 生成一个4行4列的单位矩阵
+mat = diag(4)
+mat
+
+###17. 生成2个2行2列的矩阵m和n，一个值全是1，一个值全是2
+m = matrix(1,2,2)
+n = matrix(2,2,2)
+m
+n
+
+###18. 计算矩阵m和矩阵n相乘后的结果mn，并输出正对角元素值
+mn = m%*%n
+mn
+mn_diag = diag(mn)
+mn_diag
+
+###19. 以1:9按照行优先方式生成3行3列的矩阵mm，并求该矩阵的转置矩阵
+mm = matrix(1:9,3,3,byrow = TRUE)
+mm_t = t(mm)  #转置
+
+###20. 求上一步生成的mm矩阵的特征值和特征向量
+mm = matrix(1:9,3,3,byrow = TRUE)
+eigen_mm = eigen(mm)
+print(eigen_mm$values) #特征值
+print(eigen_mm$vectors) #特征向量
+
+###21. 分别使用repeat和for循环依次打印50以内的6的倍数
+#####repeat循环
+i = 6
+repeat{ 
+  if(i > 50) break 
+  else {
+    print(i)
+    i = i + 6
+    }
+  }
+#####for循环
+for (i in 1:50) {
+  if(i%%6==0){
+    print(i)
+  }else{
+    next
+  }
+}
+
+###22. 计算从1加到100，至少采用3种不同的方法
+y2 = 1:100
+######方法一
+sum1 = sum(y2)
+sum1
+######方法二
+sum2 = 0
+for (i in 1:100) {
+  sum2 = i + sum2
+}
+sum2
+######方法二
+i = 1
+sum3 = 0
+repeat{ 
+  if(i > 100) break 
+  else {
+    sum3 = sum3 + i
+    i = i + 1
+  }
+}
+sum3
+
+###23. 将y从小到大排序，然后用排好的值，做出其正态分布密度图
+y = rnorm(1000, mean = 2, sd = 1)
+y = sort(y)
+y1 = dnorm(y,2,1)
+plot(y, y1, type = "l", col="#f0932b", ylab = "Density", lwd=2, xlim = c(-2,6))
+
+###24.	请利用R代码编写一函数程序如下，并计算F(5)，
+#########F(n)=1^3+2^3+3^3+……+n^3by
+sum_ <- function(n){
+  sum1 = 0
+  if(n>0&&n%%1==0){
+     for (i in 1:n) {
+      sum1 = i*(3^i) + sum1
+     }
+    return(sum1)
+  }else{
+    return("n输入错误，请重新输入n并重新执行程序")
+  }
+}
+res = sum_(5.5)
+res
+
+###	用R来计算以下公式，并保留两位小数
+res = (abs(exp(1)-(exp(2)^2)))^(1/3)
+result = round(res,2)
+result
+
+### 27.	以1:6按照列的顺序生成2行3列的数据，并计算每行每列的最大最小值
+mat = matrix(1:6,2,3)
+mat = data.frame(mat)
+#####列的最大值，最小值
+max_col = apply(mat, 2, max) #最大值
+min_col = apply(mat, 2, min) #最小值
+#####行的最大值，最小值
+max_row = apply(mat, 1, max) #最大值
+min_row = apply(mat, 1, min) #最小值
 
 
