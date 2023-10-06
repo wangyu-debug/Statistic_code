@@ -197,7 +197,7 @@ sum_ <- function(n){
     return("n输入错误，请重新输入n并重新执行程序")
   }
 }
-res = sum_(5.5)
+res = sum_(5)
 res
 
 ###25.用R来计算以下公式，并保留两位小数
