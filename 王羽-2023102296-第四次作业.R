@@ -47,6 +47,7 @@ var2 = theta.hat_1*(1-theta.hat_1)/m
 var2
 
 ###eg1###
+##证明https://github.com/wangyu-debug/Statistic_code/blob/main/eg1%E8%AF%81%E6%98%8E.jpg
 miu = matrix(1,2,1)
 sigma = matrix(c(1,0,0,1),2,2)
 x1 = rnorm(1000,miu[1],sigma[1,1])
