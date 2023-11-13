@@ -73,10 +73,17 @@ x2 = rnorm(1000,miu[2]+sigma[2,1]*(1/sigma[1,1])*(x1-miu[1]),sigma[2,2]-sigma[2,
 x = cbind(x1,x2)
 x
 #############变换抽样法#######
-
-
-
-
+# 生成1000个标准正态分布的随机数
+random_samples <- matrix(rnorm(2000), ncol=2)
+# 定义线性变换矩阵
+A <- matrix(c(1, -0.5, -0.5, 1), nrow=2)
+# 进行线性变换
+transformed_samples <- random_samples %*% chol(A)
+# 添加均值
+mean_vector <- c(1, 1)
+final_samples <- transformed_samples + mean_vector
+# 输出前几个随机样本
+head(final_samples)
 
 
 #####eg4#####
