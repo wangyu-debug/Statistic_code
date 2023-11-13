@@ -48,7 +48,7 @@ var2
 
 ###eg1###
 miu = matrix(1,2,1)
-sigma = matrix(c(1,-0.5,-0.5,1),2,2)
+sigma = matrix(c(1,0,0,1),2,2)
 x1 = rnorm(1000,miu[1],sigma[1,1])
 x2 = rnorm(1000,miu[2]+sigma[2,1]*(1/sigma[1,1])*(x1-miu[1]),sigma[2,2]-sigma[2,1]*(1/sigma[1,1])*sigma[1,2])
 x = cbind(x1,x2)
@@ -78,18 +78,15 @@ x
 
 
 
-
-
-
-
-
-
-###eg4###
-
-
-
-
-
-
-
-
+#####eg4#####
+data = matrix(NA,1000,3)
+for (j in 1:1000) {
+  u = runif(4)
+  temp = 4/(3*pi)
+  if(u[1]*temp<=temp){
+    for (i in 1:3) {
+      data[j,i] = 2 * u[1+i] - 1
+    }
+  }
+}
+data
